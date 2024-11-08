@@ -91,7 +91,7 @@ export default function Component() {
 
         <div className="absolute bottom-8 left-6 right-6 rounded-lg bg-white p-6 shadow-lg">
           <p className="mb-4 text-sm text-gray-600">Facing an issue?</p>
-          <button className="w-full rounded bg-[#8dc63f] py-2 text-sm font-medium text-white transition-colors hover:bg-[#7db32f]">
+          <button className="w-full bg-[#83B657] py-4  font-medium text-[#29475A] transition-colors hover:bg-[#7db32f]">
             Tech Support
           </button>
         </div>
