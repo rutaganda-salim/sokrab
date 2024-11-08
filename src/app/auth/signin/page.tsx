@@ -19,7 +19,7 @@ export default function SigninPage() {
           src="/Section.svg"
           alt="Background"
           fill
-          className="object-cover opacity-50"
+          className="object-cover"
           priority
         />
         <div className="absolute inset-0" />
