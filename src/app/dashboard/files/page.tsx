@@ -81,20 +81,24 @@ export default function Component() {
 
       {/* Main Content */}
       <div className="flex-1 pl-64 bg-white">
-        <header >
-          <div className="flex items-center justify-end px-6 py-4">
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col items-end">
-                <span className="text-sm text-gray-600">
-                  Welcome <strong>Marlene</strong>
-                </span>
-                <Link href="#" className="text-sm text-[#8dc63f] hover:underline">
-                  Logout
-                </Link>
-              </div>
-              <div className="h-10 w-10 overflow-hidden rounded-full">
-                <Image src="/Avatar.svg" alt="Profile" width={40} height={40} className="h-full w-full object-cover" />
-              </div>
+      <header className="bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-end items-center">
+            <div className="flex items-end flex-col mr-4 ">
+              <span className="text-lg font-normal text-black">
+                Welcome <strong>Marlene</strong>
+              </span>
+              <Link href="/logout" className="text-[#8dc63f] underline">
+                Logout
+              </Link>
+            </div>
+            <div className="w-10 h-10 rounded-full overflow-hidden">
+              <Image
+                src="/Avatar.svg"
+                alt="Profile"
+                width={40}
+                height={40}
+                className="object-cover"
+              />
             </div>
           </div>
         </header>
@@ -212,7 +216,7 @@ export default function Component() {
                 <div className="flex justify-center">
                   <button
                     type="submit"
-                    className="px-12 py-2.5 bg-[#8dc63f] text-white rounded-md hover:bg-[#7db32f] transition-colors"
+                    className="px-12 py-2.5 bg-[#83B657] text-[#29475A] rounded-sm transition-colors"
                   >
                     Upload
                   </button>
