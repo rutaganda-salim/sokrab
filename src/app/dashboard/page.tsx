@@ -5,50 +5,51 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Component() {
-  const [activePage] = useState('Dashboard');
+
 
   const navItems = [
-    { name: 'Dashboard', icon: '/Home.svg' },
-    { name: 'Database', icon: '/Form.svg' },
-    { name: 'QR Code', icon: '/Calendar.svg' },
-    { name: 'Files', icon: '/Multi Folder.svg' },
+    { name: 'Dashboard', icon: '/Home.svg',  link: '/dashboard' },
+    { name: 'Database', icon: '/Form.svg',  link: '/dashboard/database' },
+    { name: 'QR Code', icon: '/Calendar.svg',  link: '/dashboard/qrcode' },
+    { name: 'Files', icon: '/Multi Folder.svg',  link: '/dashboard/files' },
   ];
-
+  const [activePage, setActivePage] = useState("Dashboard")
   return (
+    
     <div className="min-h-screen bg-white">
       {/* Sidebar */}
-      <aside className="w-64 h-full fixed bg-white top-0 left-0 text-white p-6 shadow-md shadow-gray-200 z-50 overflow-y-auto">
-        {/* Sokrab Title in Sidebar */}
-        <div className="flex items-center justify-center mb-8">
-          <Image src="/logo.svg" width={200} height={200} alt="logo" />
+      <aside className="fixed left-0 top-0 z-50 h-full w-64 bg-white p-6 shadow-xl">
+        <div className="mb-8 flex items-center justify-center">
+          <Image src="/logo.svg" width={200} height={200} alt="Sokrab"  />
         </div>
 
         <nav className="space-y-2">
           {navItems.map((item) => (
             <Link
               key={item.name}
-              href="#"
-              className={`flex items-center gap-3 px-4 py-4 rounded-md ${
+              href={item.link}
+              onClick={() => setActivePage(item.name)}
+              className={`flex items-center gap-3 rounded-md px-4 py-3 transition-all duration-300 ${
                 activePage === item.name
-                  ? 'bg-[#29475A] text-[#8dc63f]'
-                  : 'hover:bg-[#435b71] hover:text-white text-black '
+                  ? "bg-[#29475A] text-[#8dc63f] shadow-md"
+                  : "text-gray-600 hover:bg-gray-100"
               }`}
             >
-              <Image 
-                src={item.icon} 
-                alt={item.name} 
-                width={24} 
-                height={24}
-                className={activePage === item.name ? 'text-[#7db32f]' : ''}
-                style={activePage === item.name ? { filter: 'invert(72%) sepia(41%) saturate(472%) hue-rotate(39deg) brightness(95%) contrast(87%)' } : {}}
+              <Image
+                src={item.icon}
+                alt={item.name}
+                width={20}
+                height={20}
+                className={`h-5 w-5 ${activePage === item.name ? "brightness-0 invert" : ""}`}
               />
-              <span>{item.name}</span>
+              <span className="text-sm font-medium">{item.name}</span>
             </Link>
           ))}
         </nav>
-        <div className="mt-40 pt-20 p-8 shadow-gray-300 shadow-lg">
-          <p className="text-sm text-black mb-4">Facing an issue?</p>
-          <button className="w-full bg-[#8dc63f] text-[#435b71] py-4 font-semibold px-4 hover:bg-[#7db32f]">
+
+        <div className="absolute bottom-8 left-6 right-6 rounded-lg bg-white p-6 shadow-lg">
+          <p className="mb-4 text-sm text-gray-600">Facing an issue?</p>
+          <button className="w-full rounded bg-[#8dc63f] py-2 text-sm font-medium text-white transition-colors hover:bg-[#7db32f]">
             Tech Support
           </button>
         </div>
@@ -56,7 +57,7 @@ export default function Component() {
 
       {/* Main Content */}
       <div className="ml-64">
-        <header className="bg-white">
+      <header className="bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-end items-center">
             <div className="flex items-end flex-col mr-4 ">
               <span className="text-lg font-normal text-black">
