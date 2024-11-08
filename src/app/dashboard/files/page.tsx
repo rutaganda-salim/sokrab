@@ -33,25 +33,25 @@ export default function Component() {
   const [activeTab, setActiveTab] = useState("Organization Files")
 
   const navItems = [
-    { name: "Dashboard", icon: "/Home.svg" },
-    { name: "Database", icon: "/Form.svg" },
-    { name: "QR Code", icon: "/Calendar.svg" },
-    { name: "Files", icon: "/Multi Folder.svg" },
+    { name: 'Dashboard', icon: '/Home.svg',  link: '/dashboard' },
+    { name: 'Database', icon: '/Form.svg',  link: '/dashboard/database' },
+    { name: 'QR Code', icon: '/Calendar.svg',  link: '/dashboard/qrcode' },
+    { name: 'Files', icon: '/Multi Folder.svg',  link: '/dashboard/files' },
   ]
 
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 z-50 h-full w-64 bg-white p-6 shadow-xl">
+      <aside className="fixed left-0 top-0 z-50 h-full w-64 bg-white p-6 shadow-md">
         <div className="mb-8 flex items-center justify-center">
-          <Image src="/logo.svg" width={120} height={40} alt="Sokrab" className="h-8 w-auto" />
+        <Image src="/logo.svg" width={200} height={200} alt="Sokrab"  />
         </div>
 
         <nav className="space-y-2">
           {navItems.map((item) => (
             <Link
               key={item.name}
-              href="#"
+              href={item.link}
               onClick={() => setActivePage(item.name)}
               className={`flex items-center gap-3 rounded-md px-4 py-3 transition-all duration-300 ${
                 activePage === item.name
@@ -80,8 +80,8 @@ export default function Component() {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 pl-64">
-        <header className="bg-white shadow-sm">
+      <div className="flex-1 pl-64 bg-white">
+        <header >
           <div className="flex items-center justify-end px-6 py-4">
             <div className="flex items-center gap-4">
               <div className="flex flex-col items-end">

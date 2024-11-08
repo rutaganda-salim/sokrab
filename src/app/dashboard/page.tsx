@@ -18,7 +18,7 @@ export default function Component() {
     
     <div className="min-h-screen bg-white">
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 z-50 h-full w-64 bg-white p-6 shadow-xl">
+      <aside className="fixed left-0 top-0 z-50 h-full w-64 bg-white p-6 shadow-md">
         <div className="mb-8 flex items-center justify-center">
           <Image src="/logo.svg" width={200} height={200} alt="Sokrab"  />
         </div>
